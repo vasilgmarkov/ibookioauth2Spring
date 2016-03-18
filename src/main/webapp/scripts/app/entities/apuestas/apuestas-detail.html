@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span translate="ibookioauth2App.apuestas.detail.title">Apuestas</span> {{apuestas.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.ligaName">LigaName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.ligaName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.partidoStartDate">PartidoStartDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.partidoStartDate | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.partidoTime">PartidoTime</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.partidoTime | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.apuestaName">ApuestaName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.apuestaName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.aApostarOdd">AApostarOdd</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.aApostarOdd}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.aApostarName">AApostarName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.aApostarName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestas.tipoDeporte">TipoDeporte</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestas.tipoDeporte}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

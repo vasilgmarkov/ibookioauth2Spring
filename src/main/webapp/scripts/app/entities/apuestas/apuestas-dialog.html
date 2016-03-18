@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myApuestasLabel" translate="ibookioauth2App.apuestas.home.createOrEditLabel">Create or edit a Apuestas</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="apuestas.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.ligaName" for="field_ligaName">LigaName</label>
+            <input type="text" class="form-control" name="ligaName" id="field_ligaName"
+                    ng-model="apuestas.ligaName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.partidoStartDate" for="field_partidoStartDate">PartidoStartDate</label>
+                <div class="input-group">
+                    <input id="field_partidoStartDate" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="apuestas.partidoStartDate" is-open="datePickerForPartidoStartDate.status.opened"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="datePickerForPartidoStartDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.partidoTime" for="field_partidoTime">PartidoTime</label>
+                <div class="input-group">
+                    <input id="field_partidoTime" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="apuestas.partidoTime" is-open="datePickerForPartidoTime.status.opened"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="datePickerForPartidoTimeOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.partidoTime.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.partidoTime.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.apuestaName" for="field_apuestaName">ApuestaName</label>
+            <input type="text" class="form-control" name="apuestaName" id="field_apuestaName"
+                    ng-model="apuestas.apuestaName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.aApostarOdd" for="field_aApostarOdd">AApostarOdd</label>
+            <input type="number" class="form-control" name="aApostarOdd" id="field_aApostarOdd"
+                    ng-model="apuestas.aApostarOdd"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.aApostarName" for="field_aApostarName">AApostarName</label>
+            <input type="text" class="form-control" name="aApostarName" id="field_aApostarName"
+                    ng-model="apuestas.aApostarName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestas.tipoDeporte" for="field_tipoDeporte">TipoDeporte</label>
+            <input type="text" class="form-control" name="tipoDeporte" id="field_tipoDeporte"
+                    ng-model="apuestas.tipoDeporte"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

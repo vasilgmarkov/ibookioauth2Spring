@@ -1,0 +1,53 @@
+{
+    "relationships": [{
+        "relationshipId":1,
+        "relationshipName": "aApostador",
+        "otherEntityName":"user",
+        "relationshipType":"many-to-one",
+        "otherEntityField": "login"
+
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "cantidadApostada",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "cuota",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "1"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "eventoApostado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "ganadorApuesta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160225190842",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}

@@ -1,0 +1,26 @@
+{
+    "ibookioauth2App": {
+        "apuestaRealizadas" : {
+            "home": {
+                "title": "ApuestaRealizadass",
+                "createLabel": "Create a new ApuestaRealizadas",
+                "createOrEditLabel": "Create or edit a ApuestaRealizadas",
+                "search": "Search for ApuestaRealizadas"
+            },
+            "created": "A new ApuestaRealizadas is created with identifier {{ param }}",
+            "updated": "A ApuestaRealizadas is updated with identifier {{ param }}",
+            "deleted": "A ApuestaRealizadas is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ApuestaRealizadas {{ id }}?"
+            },
+            "detail": {
+                "title": "ApuestaRealizadas"
+            },
+            "cantidadApostada": "CantidadApostada",
+            "cuota": "Cuota",
+            "eventoApostado": "EventoApostado",
+            "ganadorApuesta": "GanadorApuesta",
+            "aApostador": "AApostador"
+        }
+    }
+}

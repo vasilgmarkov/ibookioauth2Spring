@@ -1,0 +1,47 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "ligaName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "partidoStartDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "partidoTime",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "apuestaName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "aApostarOdd",
+            "fieldType": "Double"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "aApostarName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "tipoDeporte",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160225185909",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}

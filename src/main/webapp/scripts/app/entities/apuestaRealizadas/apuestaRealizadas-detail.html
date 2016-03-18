@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="ibookioauth2App.apuestaRealizadas.detail.title">ApuestaRealizadas</span> {{apuestaRealizadas.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestaRealizadas.cantidadApostada">CantidadApostada</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestaRealizadas.cantidadApostada}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestaRealizadas.cuota">Cuota</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestaRealizadas.cuota}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestaRealizadas.eventoApostado">EventoApostado</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestaRealizadas.eventoApostado}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestaRealizadas.ganadorApuesta">GanadorApuesta</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{apuestaRealizadas.ganadorApuesta}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="ibookioauth2App.apuestaRealizadas.aApostador">aApostador</span>
+                </td>
+                <td>
+                    {{apuestaRealizadas.aApostador.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

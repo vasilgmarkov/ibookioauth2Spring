@@ -1,0 +1,71 @@
+<div>
+    <h2 translate="ibookioauth2App.apuestas.home.title">Apuestass</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="apuestas.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="ibookioauth2App.apuestas.home.createLabel">Create new Apuestas
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ligaName"><span translate="ibookioauth2App.apuestas.ligaName">LigaName</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partidoStartDate"><span translate="ibookioauth2App.apuestas.partidoStartDate">PartidoStartDate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="partidoTime"><span translate="ibookioauth2App.apuestas.partidoTime">PartidoTime</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="apuestaName"><span translate="ibookioauth2App.apuestas.apuestaName">ApuestaName</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="aApostarOdd"><span translate="ibookioauth2App.apuestas.aApostarOdd">AApostarOdd</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="aApostarName"><span translate="ibookioauth2App.apuestas.aApostarName">AApostarName</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipoDeporte"><span translate="ibookioauth2App.apuestas.tipoDeporte">TipoDeporte</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="apuestas in apuestass track by apuestas.id">
+                    <td><a ui-sref="apuestas.detail({id:apuestas.id})">{{apuestas.id}}</a></td>
+                    <td>{{apuestas.ligaName}}</td>
+                        <td>{{apuestas.partidoStartDate | date:'mediumDate'}}</td>
+                        <td>{{apuestas.partidoTime | date:'mediumDate'}}</td>
+                    <td>{{apuestas.apuestaName}}</td>
+                    <td>{{apuestas.aApostarOdd}}</td>
+                    <td>{{apuestas.aApostarName}}</td>
+                    <td>{{apuestas.tipoDeporte}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="apuestas.detail({id:apuestas.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="apuestas.edit({id:apuestas.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="apuestas.delete({id:apuestas.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

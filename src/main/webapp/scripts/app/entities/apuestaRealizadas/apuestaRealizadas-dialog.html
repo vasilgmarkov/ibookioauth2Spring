@@ -1,0 +1,96 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myApuestaRealizadasLabel" translate="ibookioauth2App.apuestaRealizadas.home.createOrEditLabel">Create or edit a ApuestaRealizadas</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="apuestaRealizadas.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestaRealizadas.cantidadApostada" for="field_cantidadApostada">CantidadApostada</label>
+            <input type="number" class="form-control" name="cantidadApostada" id="field_cantidadApostada"
+                    ng-model="apuestaRealizadas.cantidadApostada"
+                    required min="0" />
+            <div ng-show="editForm.cantidadApostada.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cantidadApostada.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.cantidadApostada.$error.min" translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.cantidadApostada.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestaRealizadas.cuota" for="field_cuota">Cuota</label>
+            <input type="number" class="form-control" name="cuota" id="field_cuota"
+                    ng-model="apuestaRealizadas.cuota"
+                    required min="1" />
+            <div ng-show="editForm.cuota.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cuota.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.cuota.$error.min" translate="entity.validation.min" translate-value-min="1">
+                    This field should be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.cuota.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestaRealizadas.eventoApostado" for="field_eventoApostado">EventoApostado</label>
+            <input type="text" class="form-control" name="eventoApostado" id="field_eventoApostado"
+                    ng-model="apuestaRealizadas.eventoApostado"
+                    required />
+            <div ng-show="editForm.eventoApostado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.eventoApostado.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ibookioauth2App.apuestaRealizadas.ganadorApuesta" for="field_ganadorApuesta">GanadorApuesta</label>
+            <input type="text" class="form-control" name="ganadorApuesta" id="field_ganadorApuesta"
+                    ng-model="apuestaRealizadas.ganadorApuesta"
+                    required />
+            <div ng-show="editForm.ganadorApuesta.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ganadorApuesta.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="ibookioauth2App.apuestaRealizadas.aApostador" for="field_aApostador">aApostador</label>
+            <select class="form-control" id="field_aApostador" name="aApostador" ng-model="apuestaRealizadas.aApostador" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

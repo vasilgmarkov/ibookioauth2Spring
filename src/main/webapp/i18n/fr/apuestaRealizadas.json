@@ -1,0 +1,27 @@
+{
+    "ibookioauth2App": {
+        "apuestaRealizadas" : {
+            "home": {
+                "title": "ApuestaRealizadass",
+                "createLabel": "Créer un nouveau ApuestaRealizadas",
+                "createOrEditLabel": "Créer ou éditer un ApuestaRealizadas",
+                "search": "Search for ApuestaRealizadas"
+            },
+            "created": "Un nouveau ApuestaRealizadas a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ApuestaRealizadas avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ApuestaRealizadas avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ApuestaRealizadas {{ id }} ?"
+            },
+            "detail": {
+                "title": "ApuestaRealizadas"
+            },
+            "cantidadApostada": "CantidadApostada",
+            "cuota": "Cuota",
+            "eventoApostado": "EventoApostado",
+            "ganadorApuesta": "GanadorApuesta",
+            "aApostador": "AApostador"
+        }
+    }
+}
+

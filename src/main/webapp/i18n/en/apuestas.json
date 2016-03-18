@@ -1,0 +1,28 @@
+{
+    "ibookioauth2App": {
+        "apuestas" : {
+            "home": {
+                "title": "Apuestass",
+                "createLabel": "Create a new Apuestas",
+                "createOrEditLabel": "Create or edit a Apuestas",
+                "search": "Search for Apuestas"
+            },
+            "created": "A new Apuestas is created with identifier {{ param }}",
+            "updated": "A Apuestas is updated with identifier {{ param }}",
+            "deleted": "A Apuestas is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Apuestas {{ id }}?"
+            },
+            "detail": {
+                "title": "Apuestas"
+            },
+            "ligaName": "LigaName",
+            "partidoStartDate": "PartidoStartDate",
+            "partidoTime": "PartidoTime",
+            "apuestaName": "ApuestaName",
+            "aApostarOdd": "AApostarOdd",
+            "aApostarName": "AApostarName",
+            "tipoDeporte": "TipoDeporte"
+        }
+    }
+}

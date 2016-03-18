@@ -1,0 +1,69 @@
+<div>
+    <h2 translate="ibookioauth2App.apuestaRealizadas.home.title">ApuestaRealizadass</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="apuestaRealizadas.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="ibookioauth2App.apuestaRealizadas.home.createLabel">Create new ApuestaRealizadas
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cantidadApostada"><span translate="ibookioauth2App.apuestaRealizadas.cantidadApostada">CantidadApostada</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cuota"><span translate="ibookioauth2App.apuestaRealizadas.cuota">Cuota</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="eventoApostado"><span translate="ibookioauth2App.apuestaRealizadas.eventoApostado">EventoApostado</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ganadorApuesta"><span translate="ibookioauth2App.apuestaRealizadas.ganadorApuesta">GanadorApuesta</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="aApostador.login"><span translate="ibookioauth2App.apuestaRealizadas.aApostador">aApostador</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="apuestaRealizadas in apuestaRealizadass track by apuestaRealizadas.id">
+                    <td><a ui-sref="apuestaRealizadas.detail({id:apuestaRealizadas.id})">{{apuestaRealizadas.id}}</a></td>
+                    <td>{{apuestaRealizadas.cantidadApostada}}</td>
+                    <td>{{apuestaRealizadas.cuota}}</td>
+                    <td>{{apuestaRealizadas.eventoApostado}}</td>
+                    <td>{{apuestaRealizadas.ganadorApuesta}}</td>
+                    <td>
+                        {{apuestaRealizadas.aApostador.login}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="apuestaRealizadas.detail({id:apuestaRealizadas.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="apuestaRealizadas.edit({id:apuestaRealizadas.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="apuestaRealizadas.delete({id:apuestaRealizadas.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

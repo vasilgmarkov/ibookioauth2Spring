@@ -1,0 +1,24 @@
+{
+    "ibookioauth2App": {
+        "resultados" : {
+            "home": {
+                "title": "Resultadoss",
+                "createLabel": "Créer un nouveau Resultados",
+                "createOrEditLabel": "Créer ou éditer un Resultados",
+                "search": "Search for Resultados"
+            },
+            "created": "Un nouveau Resultados a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Resultados avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Resultados avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Resultados {{ id }} ?"
+            },
+            "detail": {
+                "title": "Resultados"
+            },
+            "evento": "Evento",
+            "ganador": "Ganador"
+        }
+    }
+}
+
