@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface ApuestasRepository extends JpaRepository<Apuestas,Long> {
         List<Apuestas> findByapuestaNameEquals(String name);
+        List<Apuestas> findByligaNameEquals(String ligaName);
       //  List<Apuestas> findAllByCanastasGreaterThanEqualOrderByCanastasDesc(Integer canastas);
 
 

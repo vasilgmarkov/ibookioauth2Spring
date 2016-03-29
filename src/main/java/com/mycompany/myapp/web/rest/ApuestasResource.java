@@ -134,6 +134,24 @@ public class ApuestasResource {
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    /** Pol y Vasil
+     * GET  /apuestass -> get all the apuestass by leagueName.
+     */
+    @RequestMapping(value = "/apuestass/byleagueName/{name}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Apuestas>> getApuestasByleagueName(@PathVariable String name){
+        log.debug("REST request to get Jugador : {}", name);
+        List<Apuestas> apuestas =apuestasRepository.findByligaNameEquals(name);
+
+        return Optional.ofNullable(apuestas)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
 
 
 

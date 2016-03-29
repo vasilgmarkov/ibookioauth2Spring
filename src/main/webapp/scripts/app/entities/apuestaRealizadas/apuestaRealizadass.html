@@ -6,7 +6,7 @@
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="apuestaRealizadas.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
+                    <span
                         translate="ibookioauth2App.apuestaRealizadas.home.createLabel">Create new ApuestaRealizadas
                     </span>
                 </button>
@@ -35,13 +35,13 @@
                     <td>{{apuestaRealizadas.eventoApostado}}</td>
                     <td>{{apuestaRealizadas.ganadorApuesta}}</td>
                     <td>
-                        {{apuestaRealizadas.aApostador.login}}
+                        {{apuestaRealizadas.aapostador.login}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="apuestaRealizadas.detail({id:apuestaRealizadas.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -53,7 +53,7 @@
                             </button>
                             <button type="submit"
                                     ui-sref="apuestaRealizadas.delete({id:apuestaRealizadas.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
