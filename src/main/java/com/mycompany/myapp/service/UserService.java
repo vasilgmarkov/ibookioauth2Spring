@@ -8,7 +8,7 @@ import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.util.RandomUtil;
 import com.mycompany.myapp.web.rest.dto.ManagedUserDTO;
 import java.time.ZonedDateTime;
-import java.time.LocalDate;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,7 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.ZonedDateTime;
 import javax.inject.Inject;
 import java.util.*;
 
@@ -27,6 +26,7 @@ import java.util.*;
 @Transactional
 public class UserService {
 
+    public static final double SALDO_INICIAL = 100.0;
     private final Logger log = LoggerFactory.getLogger(UserService.class);
 
     @Inject
@@ -127,6 +127,7 @@ public class UserService {
         user.setPassword(encryptedPassword);
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(ZonedDateTime.now());
+        user.setSaldo(SALDO_INICIAL);
         user.setActivated(true);
         userRepository.save(user);
         log.debug("Created Information for User: {}", user);
