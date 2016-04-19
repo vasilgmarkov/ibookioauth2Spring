@@ -44,7 +44,16 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "estado",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
+
     ],
     "changelogDate": "20160225190842",
     "dto": "no",

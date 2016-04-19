@@ -52,6 +52,9 @@ public class ApuestaRealizadasResourceIntTest {
     private static final String DEFAULT_GANADOR_APUESTA = "AAAAA";
     private static final String UPDATED_GANADOR_APUESTA = "BBBBB";
 
+    private static final Boolean DEFAULT_ESTADO = false;
+    private static final Boolean UPDATED_ESTADO = true;
+
     @Inject
     private ApuestaRealizadasRepository apuestaRealizadasRepository;
 
@@ -82,6 +85,7 @@ public class ApuestaRealizadasResourceIntTest {
         apuestaRealizadas.setCuota(DEFAULT_CUOTA);
         apuestaRealizadas.setEventoApostado(DEFAULT_EVENTO_APOSTADO);
         apuestaRealizadas.setGanadorApuesta(DEFAULT_GANADOR_APUESTA);
+        apuestaRealizadas.setEstado(DEFAULT_ESTADO);
     }
 
     @Test
@@ -104,6 +108,7 @@ public class ApuestaRealizadasResourceIntTest {
         assertThat(testApuestaRealizadas.getCuota()).isEqualTo(DEFAULT_CUOTA);
         assertThat(testApuestaRealizadas.getEventoApostado()).isEqualTo(DEFAULT_EVENTO_APOSTADO);
         assertThat(testApuestaRealizadas.getGanadorApuesta()).isEqualTo(DEFAULT_GANADOR_APUESTA);
+        assertThat(testApuestaRealizadas.getEstado()).isEqualTo(DEFAULT_ESTADO);
     }
 
     @Test
@@ -180,6 +185,24 @@ public class ApuestaRealizadasResourceIntTest {
 
     @Test
     @Transactional
+    public void checkEstadoIsRequired() throws Exception {
+        int databaseSizeBeforeTest = apuestaRealizadasRepository.findAll().size();
+        // set the field null
+        apuestaRealizadas.setEstado(null);
+
+        // Create the ApuestaRealizadas, which fails.
+
+        restApuestaRealizadasMockMvc.perform(post("/api/apuestaRealizadass")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(apuestaRealizadas)))
+                .andExpect(status().isBadRequest());
+
+        List<ApuestaRealizadas> apuestaRealizadass = apuestaRealizadasRepository.findAll();
+        assertThat(apuestaRealizadass).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllApuestaRealizadass() throws Exception {
         // Initialize the database
         apuestaRealizadasRepository.saveAndFlush(apuestaRealizadas);
@@ -192,7 +215,8 @@ public class ApuestaRealizadasResourceIntTest {
                 .andExpect(jsonPath("$.[*].cantidadApostada").value(hasItem(DEFAULT_CANTIDAD_APOSTADA.doubleValue())))
                 .andExpect(jsonPath("$.[*].cuota").value(hasItem(DEFAULT_CUOTA.doubleValue())))
                 .andExpect(jsonPath("$.[*].eventoApostado").value(hasItem(DEFAULT_EVENTO_APOSTADO.toString())))
-                .andExpect(jsonPath("$.[*].ganadorApuesta").value(hasItem(DEFAULT_GANADOR_APUESTA.toString())));
+                .andExpect(jsonPath("$.[*].ganadorApuesta").value(hasItem(DEFAULT_GANADOR_APUESTA.toString())))
+                .andExpect(jsonPath("$.[*].estado").value(hasItem(DEFAULT_ESTADO.booleanValue())));
     }
 
     @Test
@@ -209,7 +233,8 @@ public class ApuestaRealizadasResourceIntTest {
             .andExpect(jsonPath("$.cantidadApostada").value(DEFAULT_CANTIDAD_APOSTADA.doubleValue()))
             .andExpect(jsonPath("$.cuota").value(DEFAULT_CUOTA.doubleValue()))
             .andExpect(jsonPath("$.eventoApostado").value(DEFAULT_EVENTO_APOSTADO.toString()))
-            .andExpect(jsonPath("$.ganadorApuesta").value(DEFAULT_GANADOR_APUESTA.toString()));
+            .andExpect(jsonPath("$.ganadorApuesta").value(DEFAULT_GANADOR_APUESTA.toString()))
+            .andExpect(jsonPath("$.estado").value(DEFAULT_ESTADO.booleanValue()));
     }
 
     @Test
@@ -233,6 +258,7 @@ public class ApuestaRealizadasResourceIntTest {
         apuestaRealizadas.setCuota(UPDATED_CUOTA);
         apuestaRealizadas.setEventoApostado(UPDATED_EVENTO_APOSTADO);
         apuestaRealizadas.setGanadorApuesta(UPDATED_GANADOR_APUESTA);
+        apuestaRealizadas.setEstado(UPDATED_ESTADO);
 
         restApuestaRealizadasMockMvc.perform(put("/api/apuestaRealizadass")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -247,6 +273,7 @@ public class ApuestaRealizadasResourceIntTest {
         assertThat(testApuestaRealizadas.getCuota()).isEqualTo(UPDATED_CUOTA);
         assertThat(testApuestaRealizadas.getEventoApostado()).isEqualTo(UPDATED_EVENTO_APOSTADO);
         assertThat(testApuestaRealizadas.getGanadorApuesta()).isEqualTo(UPDATED_GANADOR_APUESTA);
+        assertThat(testApuestaRealizadas.getEstado()).isEqualTo(UPDATED_ESTADO);
     }
 
     @Test

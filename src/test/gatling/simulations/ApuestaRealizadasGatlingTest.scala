@@ -80,7 +80,7 @@ class ApuestaRealizadasGatlingTest extends Simulation {
             .exec(http("Create new apuestaRealizadas")
             .post("/api/apuestaRealizadass")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "cantidadApostada":null, "cuota":null, "eventoApostado":"SAMPLE_TEXT", "ganadorApuesta":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "cantidadApostada":null, "cuota":null, "eventoApostado":"SAMPLE_TEXT", "ganadorApuesta":"SAMPLE_TEXT", "estado":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_apuestaRealizadas_url")))
             .pause(10)

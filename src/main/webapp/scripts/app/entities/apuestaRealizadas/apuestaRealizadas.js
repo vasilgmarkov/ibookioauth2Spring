@@ -65,6 +65,7 @@ angular.module('ibookioauth2App')
                                     cuota: null,
                                     eventoApostado: null,
                                     ganadorApuesta: null,
+                                    estado: false,
                                     id: null
                                 };
                             }

@@ -26,20 +26,24 @@ public class ApuestaRealizadas implements Serializable {
     @Min(value = 0)
     @Column(name = "cantidad_apostada", nullable = false)
     private Double cantidadApostada;
-
+    
     @NotNull
     @Min(value = 1)
     @Column(name = "cuota", nullable = false)
     private Double cuota;
-
+    
     @NotNull
     @Column(name = "evento_apostado", nullable = false)
     private String eventoApostado;
-
+    
     @NotNull
     @Column(name = "ganador_apuesta", nullable = false)
     private String ganadorApuesta;
-
+    
+    @NotNull
+    @Column(name = "estado", nullable = false)
+    private Boolean estado;
+    
     @ManyToOne
     @JoinColumn(name = "a_apostador_id")
     private User aApostador;
@@ -55,7 +59,7 @@ public class ApuestaRealizadas implements Serializable {
     public Double getCantidadApostada() {
         return cantidadApostada;
     }
-
+    
     public void setCantidadApostada(Double cantidadApostada) {
         this.cantidadApostada = cantidadApostada;
     }
@@ -63,7 +67,7 @@ public class ApuestaRealizadas implements Serializable {
     public Double getCuota() {
         return cuota;
     }
-
+    
     public void setCuota(Double cuota) {
         this.cuota = cuota;
     }
@@ -71,7 +75,7 @@ public class ApuestaRealizadas implements Serializable {
     public String getEventoApostado() {
         return eventoApostado;
     }
-
+    
     public void setEventoApostado(String eventoApostado) {
         this.eventoApostado = eventoApostado;
     }
@@ -79,9 +83,17 @@ public class ApuestaRealizadas implements Serializable {
     public String getGanadorApuesta() {
         return ganadorApuesta;
     }
-
+    
     public void setGanadorApuesta(String ganadorApuesta) {
         this.ganadorApuesta = ganadorApuesta;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 
     public User getAApostador() {
@@ -116,11 +128,11 @@ public class ApuestaRealizadas implements Serializable {
     public String toString() {
         return "ApuestaRealizadas{" +
             "id=" + id +
-            ", cantidadApostada=" + cantidadApostada +
-            ", cuota=" + cuota +
-            ", eventoApostado='" + eventoApostado + '\'' +
-            ", ganadorApuesta='" + ganadorApuesta + '\'' +
-            ", aApostador=" + aApostador +
+            ", cantidadApostada='" + cantidadApostada + "'" +
+            ", cuota='" + cuota + "'" +
+            ", eventoApostado='" + eventoApostado + "'" +
+            ", ganadorApuesta='" + ganadorApuesta + "'" +
+            ", estado='" + estado + "'" +
             '}';
     }
 }

@@ -7,7 +7,7 @@ angular.module('ibookioauth2App')
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });
-		
+
 		Principal.identity().then(function(account) {
             $scope.currentAccount = account;
         });

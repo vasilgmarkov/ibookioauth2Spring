@@ -1,9 +1,9 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.mycompany.myapp.config.JHipsterProperties;
 import com.mycompany.myapp.domain.ApuestaRealizadas;
 import com.mycompany.myapp.repository.ApuestaRealizadasRepository;
+import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.mycompany.myapp.repository.UserRepository;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
@@ -35,8 +35,9 @@ public class ApuestaRealizadasResource {
 
     @Inject
     private ApuestaRealizadasRepository apuestaRealizadasRepository;
-   @Inject
-   private UserRepository userRepository;
+
+    @Inject
+    private UserRepository userRepository;
     /**
      * POST  /apuestaRealizadass -> Create a new apuestaRealizadas.
      */
@@ -46,7 +47,6 @@ public class ApuestaRealizadasResource {
     @Timed
     public ResponseEntity<ApuestaRealizadas> createApuestaRealizadas(@Valid @RequestBody ApuestaRealizadas apuestaRealizadas) throws URISyntaxException {
         log.debug("REST request to save ApuestaRealizadas : {}", apuestaRealizadas);
-
         if (apuestaRealizadas.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("apuestaRealizadas", "idexists", "A new apuestaRealizadas cannot already have an ID")).body(null);
         }

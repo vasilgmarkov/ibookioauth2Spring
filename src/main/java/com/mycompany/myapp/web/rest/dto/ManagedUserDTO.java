@@ -17,6 +17,8 @@ public class ManagedUserDTO extends UserDTO {
 
     private ZonedDateTime lastModifiedDate;
 
+    private Double saldo;
+
     public ManagedUserDTO() {
     }
 
@@ -26,6 +28,7 @@ public class ManagedUserDTO extends UserDTO {
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
+        this.saldo = user.getSaldo();
     }
 
     public Long getId() {
@@ -60,6 +63,15 @@ public class ManagedUserDTO extends UserDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
+    public Double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
+    }
+
+
     @Override
     public String toString() {
         return "ManagedUserDTO{" +
@@ -67,6 +79,7 @@ public class ManagedUserDTO extends UserDTO {
             ", createdDate=" + createdDate +
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
-            "} " + super.toString();
+            ", saldo=" + saldo +
+            '}';
     }
 }

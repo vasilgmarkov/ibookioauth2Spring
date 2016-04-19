@@ -6,6 +6,7 @@ import com.mycompany.myapp.domain.User;
 import com.mycompany.myapp.repository.AuthorityRepository;
 import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.AuthoritiesConstants;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.MailService;
 import com.mycompany.myapp.service.UserService;
 import com.mycompany.myapp.web.rest.dto.ManagedUserDTO;
@@ -115,6 +116,7 @@ public class UserResource {
     /**
      * PUT  /users -> Updates an existing User.
      */
+
     @RequestMapping(value = "/users",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -153,6 +155,38 @@ public class UserResource {
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
 
     }
+
+
+
+
+    /**
+     * PUT  /users -> Updates an existing User Saldo --  Pol y Vasil .
+     */
+
+    @RequestMapping(value = "/user/modificarSaldo/{saldo}",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Transactional
+   @Secured(AuthoritiesConstants.USER) //solo afecta si estas con usuario admin
+    public ResponseEntity<ManagedUserDTO> getUser(@PathVariable Double saldo) {
+        log.debug("REST request to update User : {}", userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
+        return userRepository
+            .findOneById(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get().getId())
+            .map(user -> {
+                user.setSaldo(saldo);
+                return ResponseEntity.ok()
+                    .headers(HeaderUtil.createAlert("user-management.updated", userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get().getLogin()))
+                    .body(new ManagedUserDTO(userRepository
+                        .findOne(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get().getId())));
+            })
+            .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+
+    }
+
+
+
+
 
     /**
      * GET  /users -> get all users.

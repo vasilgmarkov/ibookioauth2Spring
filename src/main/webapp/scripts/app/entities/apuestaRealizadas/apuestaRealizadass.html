@@ -6,7 +6,7 @@
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="apuestaRealizadas.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span
+                    <span 
                         translate="ibookioauth2App.apuestaRealizadas.home.createLabel">Create new ApuestaRealizadas
                     </span>
                 </button>
@@ -23,6 +23,7 @@
                     <th jh-sort-by="cuota"><span translate="ibookioauth2App.apuestaRealizadas.cuota">Cuota</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="eventoApostado"><span translate="ibookioauth2App.apuestaRealizadas.eventoApostado">EventoApostado</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="ganadorApuesta"><span translate="ibookioauth2App.apuestaRealizadas.ganadorApuesta">GanadorApuesta</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="estado"><span translate="ibookioauth2App.apuestaRealizadas.estado">Estado</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="aApostador.login"><span translate="ibookioauth2App.apuestaRealizadas.aApostador">aApostador</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -34,14 +35,15 @@
                     <td>{{apuestaRealizadas.cuota}}</td>
                     <td>{{apuestaRealizadas.eventoApostado}}</td>
                     <td>{{apuestaRealizadas.ganadorApuesta}}</td>
+                    <td>{{apuestaRealizadas.estado}}</td>
                     <td>
-                        {{apuestaRealizadas.aapostador.login}}
+                        {{apuestaRealizadas.aApostador.login}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="apuestaRealizadas.detail({id:apuestaRealizadas.id})"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-info btn-sm"> 
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -53,7 +55,7 @@
                             </button>
                             <button type="submit"
                                     ui-sref="apuestaRealizadas.delete({id:apuestaRealizadas.id})"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-danger btn-sm">                                    
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
