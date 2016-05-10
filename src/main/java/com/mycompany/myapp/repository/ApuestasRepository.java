@@ -17,6 +17,9 @@ public interface ApuestasRepository extends JpaRepository<Apuestas,Long> {
        @Query("SELECT a FROM Apuestas a WHERE a.apuestaName LIKE '%Match Betting%' and a.ligaName =:ligaName ")
         public List<Apuestas> findByapuestaNameContainingAndligaNameEquals(@Param ("ligaName")String ligaName);
       //  List<Apuestas> findAllByCanastasGreaterThanEqualOrderByCanastasDesc(Integer canastas);
+      @Query("SELECT a FROM Apuestas a WHERE a.apuestaName LIKE '%- Money Line%' and a.ligaName =:ligaName ")
+      public List<Apuestas> findByapuestaNameBContainingAndligaNameEquals(@Param ("ligaName")String ligaName);
+    //  List<Apuestas> findAllByCanastasGreaterThanEqualOrderByCanastasDesc(Integer canastas);
 
 
 }
