@@ -10,6 +10,7 @@ import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -106,6 +107,25 @@ public class ApuestaRealizadasResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+
+    /**
+     * GET  /apuestaRealizadass -> get all the apuestaRealizadass.
+     */
+    @RequestMapping(value = "/apuestaTopRealizadass",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ApuestaRealizadas>> getTop10Apuestas(Pageable pageable)
+        throws URISyntaxException {
+        Pageable topTen = new PageRequest(0, 10);
+        log.debug("REST request to get a page of ApuestaRealizadass");
+        Page<ApuestaRealizadas> page = apuestaRealizadasRepository.findByTopApuestaRealizadas(topTen);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/apuestaTopRealizadass");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
 
     /**
      * DELETE  /apuestaRealizadass/:id -> delete the "id" apuestaRealizadas.

@@ -22,4 +22,6 @@ public interface ApuestasRepository extends JpaRepository<Apuestas,Long> {
     //  List<Apuestas> findAllByCanastasGreaterThanEqualOrderByCanastasDesc(Integer canastas);
 
 
+
+
 }

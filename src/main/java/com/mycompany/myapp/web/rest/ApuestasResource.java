@@ -119,7 +119,7 @@ public class ApuestasResource {
     /** Pol y Vasil
      * GET  /apuestass -> get all the apuestass by name.
      */
-    @RequestMapping(value = "/apuestass/byName/{name}",
+    @RequestMapping(value = "/apuestass/byName/{name:.+}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
