@@ -16,6 +16,7 @@ import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -203,6 +204,26 @@ public class UserResource {
             .map(user -> new ManagedUserDTO(user))
             .collect(Collectors.toList());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+        return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+    }
+
+
+    /**
+     * GET  /users -> get all users.
+     */
+    /*@RequestMapping(value = "/users/topRanking",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Transactional(readOnly = true)
+    public ResponseEntity<List<ManagedUserDTO>> getUsersRanking(Pageable pageable)
+        throws URISyntaxException {
+        Pageable topTen = new PageRequest(0, 10);
+        Page<User> page = userRepository.findByTopSaldo(topTen);
+        List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
+            .map(user -> new ManagedUserDTO(user))
+            .collect(Collectors.toList());
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users/topRanking");
         return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
     }
 

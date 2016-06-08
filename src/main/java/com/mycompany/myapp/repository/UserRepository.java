@@ -1,8 +1,12 @@
 package com.mycompany.myapp.repository;
 
+import com.mycompany.myapp.domain.ApuestaRealizadas;
 import com.mycompany.myapp.domain.User;
 
 import java.time.ZonedDateTime;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -28,5 +32,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Override
     void delete(User t);
+
+ //   @Query("SELECT u FROM  jhi_user u GROUP BY id order by COUNT(saldo) DESC ")
+   // Page<User> findByTopSaldo(Pageable var1);
 
 }

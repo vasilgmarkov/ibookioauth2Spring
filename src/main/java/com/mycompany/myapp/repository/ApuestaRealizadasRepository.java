@@ -20,4 +20,6 @@ public interface ApuestaRealizadasRepository extends JpaRepository<ApuestaRealiz
     @Query("SELECT a FROM ApuestaRealizadas a GROUP BY eventoApostado order by COUNT(eventoApostado) DESC ")
     Page<ApuestaRealizadas> findByTopApuestaRealizadas(Pageable var1);
 
+
+
 }

@@ -139,4 +139,22 @@ public class ApuestaRealizadasResource {
         apuestaRealizadasRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("apuestaRealizadas", id.toString())).build();
     }
+
+    /** Pol y Vasil
+     * GET  /apuestassRealizadas -> get all the UserBets.
+     */
+    @RequestMapping(value = "/allUserBets",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ApuestaRealizadas>> getAllUserBets(){
+        log.debug("REST request to get Jugador : {}");
+        List<ApuestaRealizadas> allUserBet = apuestaRealizadasRepository.findByAApostadorIsCurrentUser();
+
+        return Optional.ofNullable(allUserBet)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 }
