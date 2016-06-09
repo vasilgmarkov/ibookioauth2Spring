@@ -34,6 +34,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     void delete(User t);
 
  //   @Query("SELECT u FROM  jhi_user u GROUP BY id order by COUNT(saldo) DESC ")
-   // Page<User> findByTopSaldo(Pageable var1);
+   // List<User> findBySaldo();
 
 }
